@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--Changing the Value of an Attribute-->
+<!--This example changes the value of the src attribute of an <img> element:-->
+<html>
+<body>
+
+<img id="myImage" src="smiley.gif">
+
+<script>
+document.getElementById("myImage").src = "food.jpg";
+</script>
+
+</body>
+</html>
+
+<!----------------------------------------------------------------------------->
+
+<!--The DOM Programming Interface-->
+<!--The following example changes the content (the innerHTML) of the <p> element with id="demo":-->
+<html>
+<body>
+
+<p id="chicken"></p>
+
+<script>
+document.getElementById("chicken").innerHTML = "Hello World!";
+</script>
+
+</body>
+</html>
+<!--In the example above, getElementById is a method, while innerHTML is a property.-->
+
+<!-------------------------------------------------------------------------------->
+
+<!--Changing HTML Content-->
+<div id="div1">
+    <p id="p1">This is a paragraph.</p> <!--This code creates a new <p> element-->
+    <p id="p2">This is another paragraph.</p>
+  </div>
+  
+  <script> //Here I am using javascript but in the HTML file by using <script>
+  var para = document.createElement("p");
+  var node = document.createTextNode("This is new."); //To add text to the <p> element, you must create a text node first. This code creates a text node:
+  para.appendChild(node); //Then you must append the text node to the <p> element:
+  
+  var element = document.getElementById("div1"); //This code finds an existing element:
+  element.appendChild(para);
+  </script>
+
+  <!----------------------------------------------------------------------------->
+
+  <!--Child Nodes and Node Values-->
+  <!-- retrieves the text of an <h1> element and copies it into a <p> element:-->
+  <html>
+<body>
+
+<h1 id="thisWillBeUsed">My First Page</h1>
+<p id="thisWillBeUsed"></p>
+
+<script>
+document.getElementById("thisWillBeUsed").innerHTML = document.getElementById("thisWillBeUsed").innerHTML;
+</script>
+
+</body>
+</html>
+
+<!--------------------------------------------------------------------------------->
+
+<!--DOM Root Nodes-->
+<!--There are two special properties that allow access to the full document:
+    //document.body - The body of the document
+    //document.documentElement - The full document-->
+<html>
+<body>
+
+<p>Hello World!</p>
+<div>
+<p>The DOM is very useful!</p>
+<p>This example demonstrates the <b>document.body</b> property.</p>
+</div>
+
+<script>
+alert(document.body.innerHTML);
+</script>
+
+</body>
+</html>
+
+<!--------------------------------------------------------------------------------->
+
+<!--The nodeName Property-->
+<h1 id="id01">My First Page</h1>
+<p id="id02"></p>
+
+<script>
+document.getElementById("id02").innerHTML = document.getElementById("id01").nodeName;
+</script>
+
+<!--The nodeName property specifies the name of a node.
+nodeName is read-only
+nodeName of an element node is the same as the tag name
+nodeName of an attribute node is the attribute name
+nodeName of a text node is always #text
+nodeName of the document node is always #document-->
